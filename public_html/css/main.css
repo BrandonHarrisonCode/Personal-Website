@@ -8,10 +8,6 @@
         position: relative;
     }
 
-    .portrait {
-        width: 100vw;
-    }
-
     #bio {
         font-size: 4vw;
         line-height: 1.2;
@@ -28,17 +24,18 @@
         position: fixed;
     }
 
-    .portrait {
-        width: 50vw;
-    }
-
     #bio {
         font-size: 1.6vw;
     }
 
     .resume {
-        margin-left: 50vw;
         width: 50vw;
+        position: absolute;
+        right: 0;
+    }
+
+    .text {
+        padding: 1em;
     }
 }
 
@@ -64,8 +61,42 @@ body {
     background-position: 50% 50%;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6, h7 {
     margin: 0;
+}
+
+.section {
+    padding-bottom: 3em;
+    line-heigth: 3;
+}
+
+.main {
+    font-family: "merriweather";
+    font-weight: bold;
+}
+
+.detail {
+    font-family: "merriweather";
+    font-style: italic;
+}
+
+.date {
+    font-size: .8em;
+    font-family: "open-sans";
+    color: #737373;
+}
+
+.section h4 {
+    font-family: "open-sans";
+    text-transform: uppercase;
+    color: #0068bf;
+    font-weight: bold;
+    font-style: italic;
+    padding-bottom: 1em;
+}
+
+.resume {
+    text-align: left;
 }
 
 p {
