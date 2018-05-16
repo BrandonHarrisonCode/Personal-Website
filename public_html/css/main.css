@@ -1,178 +1,116 @@
-/* Custom default button */
-.btn-default,
-.btn-default:hover,
-.btn-default:focus {
-    color: #333;
-    text-shadow: none; /* Prevent inheritance from `body` */
-    background-color: #fff;
-    border: 1px solid #fff;
+@media screen and (max-device-width: 40em) {
+    .wrapper {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    #intro {
+        width: 100vw;
+        position: relative;
+    }
+
+    .portrait {
+        width: 100vw;
+    }
+
+    #bio {
+        font-size: 4vw;
+        line-height: 1.2;
+    }
 }
 
-.site-wrapper-inner {
-    display:table;
-    height:auto;
-    padding:100px 0;
-    text-align:center;
-    color: aliceblue;
-    background:url(../resources/forest_close.JPG) bottom center no-repeat #000;
-    -webkit-background-size:cover;
-    -moz-background-size:cover;
-    background-size:cover;
-    -o-background-size:cover;
-}
+@media screen and (min-device-width: 40em) {
+    .wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
-html, body {
-    height: 100%;
-    width: 100%;
+    #intro {
+        width: 50vw;
+        position: fixed;
+    }
+
+    .portrait {
+        width: 50vw;
+    }
+
+    #bio {
+        font-size: 1.6vw;
+    }
+
+    .resume {
+        margin-left: 50vw;
+        width: 50vw;
+    }
 }
 
 body {
-    background-color: #29272A;
-    color: aliceblue;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #FFF8E7;
+    color: #000718;
+    font-size: 1.1em;
+    line-height: 1.5;
     text-align: center;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, .5);
 }
 
-a:link, a:visited, a:active {
-    color: #FFFFFF;
-    text-decoration: none;
+#intro {
+    height: 100vh;
 }
 
-a:hover {
-    color: #E87461;
-    text-decoration: none;
+.portrait {
+    height: 100vh;
+    background-image: url("../resources/headshot.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
 }
 
-::selection {
-    background: #E87461; /* WebKit/Blink Browsers */
-}
-::-moz-selection {
-    background: #E87461; /* Gecko Browsers */
+h1, h2, h3 {
+    margin: 0;
 }
 
-/* Extra markup and styles for table-esque vertical and horizontal centering */
-.site-wrapper {
-    display: table;
-    width: 100%;
-    height: 100%; /* For at least Firefox */
-    min-height: 100%;
-    -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
-    box-shadow: inset 0 0 100px rgba(0,0,0,.5);
-}
-.site-wrapper-inner {
-    display: table-cell;
-    vertical-align: top;
-}
-.cover-container {
-    margin-right: auto;
-    margin-left: auto;
+p {
+    margin: 0;
+    padding: 1em 0;
+    position: relative;
 }
 
-/* Padding for spacing */
-.inner {
-    padding: 30px;
+.wrapper {
+    display: grid;
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
 }
 
-
-/*
- * Header
- */
-.masthead-brand {
-    margin-top: 10px;
-    margin-bottom: 10px;
+#bio {
+    color: white;
+    text-shadow: 0 0 4px #000;
+    position: absolute;
+    width: 20em;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
 }
 
-.masthead-nav > li {
-    display: inline-block;
-}
-.masthead-nav > li + li {
-    margin-left: 20px;
-}
-.masthead-nav > li > a {
-    padding-right: 0;
-    padding-left: 0;
-    font-size: 16px;
-    font-weight: bold;
-    color: #fff; /* IE8 proofing */
-    color: rgba(255,255,255,.75);
-    border-bottom: 2px solid transparent;
-}
-.masthead-nav > li > a:hover,
-.masthead-nav > li > a:focus {
-    background-color: transparent;
-    border-bottom-color: #a9a9a9;
-    border-bottom-color: rgba(255,255,255,.25);
-}
-.masthead-nav > .active > a,
-.masthead-nav > .active > a:hover,
-.masthead-nav > .active > a:focus {
-    color: #fff;
-    border-bottom-color: #fff;
+.highlight {
+    font-style: italic;
+    color: #BF5700;
 }
 
-@media (min-width: 768px) {
-    .masthead-brand {
-        float: left;
-    }
-    .masthead-nav {
-        float: right;
-    }
+.tint {
+  position: relative;
+  margin-right: 20px;
+  box-shadow: rgba(0,0,0,.2) 3px 5px 5px;
 }
 
-
-/*
- * Cover
- */
-
-.cover {
-    padding: 0 20px;
-}
-.cover .btn-lg {
-    padding: 10px 20px;
-    font-weight: bold;
-}
-
-
-/*
- * Footer
- */
-
-.mastfoot {
-    color: #999; /* IE8 proofing */
-    color: rgba(255,255,255,.5);
+.tint:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 104, 191, 0.4);
+  transition: all .3s linear;
 }
 
-
-/*
- * Affix and center
- */
-
-@media (min-width: 768px) {
-    /* Pull out the header and footer */
-    .masthead {
-        position: fixed;
-        top: 0;
-    }
-    .mastfoot {
-        position: fixed;
-        bottom: 0;
-    }
-    /* Start the vertical centering */
-    .site-wrapper-inner {
-        vertical-align: middle;
-    }
-    /* Handle the widths */
-    .masthead,
-    .mastfoot,
-    .cover-container {
-        width: 100%; /* Must be percentage or pixels for horizontal alignment */
-    }
-}
-
-@media (min-width: 992px) {
-    .masthead,
-    .mastfoot,
-    .cover-container {
-        width: 700px;
-    }
-}
+.tint:hover:before { background: none; }
