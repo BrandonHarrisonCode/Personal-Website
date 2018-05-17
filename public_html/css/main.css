@@ -66,18 +66,28 @@ h1, h2, h3, h4, h5, h6, h7 {
 }
 
 .section {
-    padding-bottom: 3em;
+    padding-bottom: 2em;
     line-heigth: 3;
 }
 
-.main {
+.entry {
+    padding-bottom: 1em;
+}
+
+.entrytitle {
     font-family: "merriweather";
     font-weight: bold;
 }
 
-.detail {
+.subtitle {
     font-family: "merriweather";
     font-style: italic;
+}
+
+.detail {
+    font-familiy: "merriweather";
+    font-size: .9em;
+    color: #737373;
 }
 
 .date {
@@ -85,7 +95,7 @@ h1, h2, h3, h4, h5, h6, h7 {
     font-family: "open-sans";
     color: #737373;
 }
-
+    
 .section h4 {
     font-family: "open-sans";
     text-transform: uppercase;
