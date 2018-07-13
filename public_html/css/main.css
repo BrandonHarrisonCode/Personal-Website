@@ -12,6 +12,11 @@
         font-size: 4vw;
         line-height: 1.2;
     }
+
+    .resume {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
 }
 
 @media screen and (min-device-width: 40em) {
@@ -37,6 +42,8 @@
     .text {
         padding: 1em;
     }
+
+    .tint:hover:before { background: none; }
 }
 
 body {
@@ -153,4 +160,3 @@ p {
   transition: all .3s linear;
 }
 
-.tint:hover:before { background: none; }
