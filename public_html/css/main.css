@@ -24,6 +24,14 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .portrait img {
+        width: 50vw;
+        height: 100vh;
+        object-fit: cover;
+        position: relative;
+        z-index: -10;
+    }
+
     #intro {
         width: 50vw;
         position: fixed;
@@ -62,10 +70,10 @@ body {
 
 .portrait {
     height: 100vh;
-    background-image: url("../resources/headshot.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
+    /* background-image: url("../resources/smallheadshot.jpg"); */
+    /* background-size: cover; */
+    /* background-repeat: no-repeat; */
+    /* background-position: 50% 50%; */
 }
 
 h1, h2, h3, h4, h5, h6, h7 {
@@ -102,7 +110,7 @@ h1, h2, h3, h4, h5, h6, h7 {
     font-family: "open-sans";
     color: #737373;
 }
-    
+
 .section h4 {
     font-family: "open-sans";
     text-transform: uppercase;
@@ -159,4 +167,3 @@ p {
   background: rgba(0, 104, 191, 0.4);
   transition: all .3s linear;
 }
-
