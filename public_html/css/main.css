@@ -17,7 +17,7 @@
         width: 100vw;
     }
 
-    .resume {
+    #resume {
         margin-left: 15px;
         margin-right: 15px;
     }
@@ -28,12 +28,11 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .portrait img {
-        width: 50vw;
+    #intro {
+        visibility: hidden;
     }
 
-    #intro {
-        width: 50vw;
+    #intro, .portrait img {
         position: fixed;
     }
 
@@ -41,9 +40,9 @@
         font-size: 1.6vw;
     }
 
-    .resume {
-        width: 50vw;
+    #resume {
         position: absolute;
+        width: 50vw;
         right: 0;
     }
 
@@ -52,6 +51,38 @@
     }
 
     .tint:hover:before { background: none; }
+
+    .slide-to-right {
+        animation-name: slide-to-right;
+        animation-duration: 1s;
+        width: 50vw;
+        z-index: -99;
+    }
+
+    .push-to-right {
+        animation-name: push-to-right;
+        animation-duration: 1s;
+    }
+
+    .grow-text {
+        animation-name: grow-text;
+        animation-duration: 1s;
+    }
+
+    @keyframes slide-to-right {
+        from {width: 0vw;}
+        to {width: 50vw;}
+    }
+
+    @keyframes push-to-right {
+        from {width: 100vw;}
+        to {width: 50vw;}
+    }
+
+    @keyframes grow-text {
+        from {font-size: 0vw;}
+        to {font-size: 1.6vw;}
+    }
 }
 
 body {
@@ -65,10 +96,6 @@ body {
 }
 
 #intro {
-    height: 100vh;
-}
-
-.portrait {
     height: 100vh;
 }
 
@@ -116,7 +143,7 @@ h1, h2, h3, h4, h5, h6, h7 {
     padding-bottom: 1em;
 }
 
-.resume {
+#resume {
     text-align: left;
 }
 
