@@ -13,6 +13,10 @@
         line-height: 1.2;
     }
 
+    .portrait img {
+        width: 100vw;
+    }
+
     .resume {
         margin-left: 15px;
         margin-right: 15px;
@@ -26,10 +30,6 @@
 
     .portrait img {
         width: 50vw;
-        height: 100vh;
-        object-fit: cover;
-        position: relative;
-        z-index: -10;
     }
 
     #intro {
@@ -70,10 +70,6 @@ body {
 
 .portrait {
     height: 100vh;
-    /* background-image: url("../resources/smallheadshot.jpg"); */
-    /* background-size: cover; */
-    /* background-repeat: no-repeat; */
-    /* background-position: 50% 50%; */
 }
 
 h1, h2, h3, h4, h5, h6, h7 {
@@ -145,6 +141,14 @@ p {
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
 }
+
+.portrait img {
+    height: 100vh;
+    object-fit: cover;
+    position: relative;
+    z-index: -10;
+}
+
 
 .highlight {
     font-style: italic;
