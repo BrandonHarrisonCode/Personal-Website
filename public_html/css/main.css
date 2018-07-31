@@ -164,8 +164,9 @@ p {
 }
 
 .tint {
-  position: relative;
-  box-shadow: rgba(0,0,0,.2) 3px 5px 5px;
+    height: 100vh;
+    position: relative;
+    box-shadow: rgba(0,0,0,.2) 3px 5px 5px;
 }
 
 .tint:before {
