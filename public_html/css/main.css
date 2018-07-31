@@ -60,7 +60,7 @@
     }
 
     .text {
-        padding: 1em;
+        padding: 2.5em;
     }
 
     .tint:hover:before { background: none; }
@@ -69,7 +69,7 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background: #FFF8E7;
+    background: #FFF5EE;
     color: #000718;
     font-size: 1.1em;
     line-height: 1.5;
@@ -241,15 +241,15 @@ p {
 
 @keyframes bobbing {
   0% {
-   transform: translate(0px, 0px) rotateZ(0.001deg);
+   transform: translate(0px, 4.5px) rotateZ(0.001deg);
    animation-timing-function:ease-in-out
   }
   50% {
-    transform: translate(0px, -6px) rotateZ(0.001deg);
+    transform: translate(0px, -4.5px) rotateZ(0.001deg);
     animation-timing-function:ease-in-out
   }
   100% {
-   transform: translate(0px, 0px) rotateZ(0.001deg);
+   transform: translate(0px, 4px) rotateZ(0.001deg);
    animation-timing-function:ease-in-out
   }
 }
