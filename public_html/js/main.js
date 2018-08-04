@@ -44,10 +44,6 @@ async function portraitLoad() {
     var resumetext = document.getElementById('resumetext');
     var bio = document.getElementById('bio');
 
-    // Make it so there is no scroll bar during the loading screen
-    var resumetemp = resumetext.innerHTML;
-    resumetext.innerHTML = '';
-
     await sleep(2000);
 
     intro.style.visibility = 'visible';
@@ -66,7 +62,7 @@ async function portraitLoad() {
 
     await sleep(500);
 
-    resumetext.innerHTML = resumetemp;
+    document.body.classList.remove("noscroll");
     addClass(logo, 'fade-out');
     await sleep(400);
 

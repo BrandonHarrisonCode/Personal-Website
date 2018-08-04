@@ -181,6 +181,12 @@ p {
   transition: all .3s linear;
 }
 
+.noscroll {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+
 .slide-to-right {
     animation-name: slide-to-right;
     animation-duration: 1s;
