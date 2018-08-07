@@ -23,6 +23,8 @@ const largeScreen = window.matchMedia( "(min-device-width: 40em)" );
 largeScreen.addListener(WidthChange);
 
 async function portraitLoad() {
+    window.scrollTo(0, 0);
+
     if(!largeScreen.matches) {
         var intro = document.getElementById('intro');
         intro.style.visibility = 'visible';
@@ -33,6 +35,7 @@ async function portraitLoad() {
 
         resumetext.style.visibility = 'visible';
         logo.style.visibility = 'hidden';
+        document.body.classList.remove("noscroll");
 
         return;
     }
