@@ -1,91 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Brandon Harrison</title>
-    <link rel="stylesheet" type="text/css" href="css/main.css"/>
-    <script src="js/main.js"></script>
-  </head>
-  <body class="noscroll">
-    <div class="wrapper">
-      <div id="intro">
-        <div class="portrait tint">
-          <img id="headshot" onload="portraitLoad()" src="resources/smallheadshot.jpg" srcset="resources/smallheadshot.jpg 1x, resources/headshot.jpg 2x" alt="Portrait of Brandon">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Brandon Harrison</title>
+        <link rel="stylesheet" type="text/css" href="css/main.css"/>
+        <script src="js/main.js"></script>
+    </head>
+    <body class="noscroll">
+        <div class="wrapper">
+            <div id="intro">
+                <div class="portrait tint">
+                    <img id="headshot" onload="portraitLoad()" src="resources/smallheadshot.jpg" srcset="resources/smallheadshot.jpg 1x, resources/headshot.jpg 2x" alt="Portrait of Brandon">
+                </div>
+                <div id="bio">
+                    <h1>Hi, I'm <span class="highlight">Brandon.</span></h1>
+                    <p> I'm a software developer from <br><span class="highlight">The University of Texas at Austin</span>.</p>
+                </div>
+            </div>
+            <div id="resume">
+                <div class="bobbing"><div id="logo"></div></div>
+                <div id="resumetext" class="text">
+                    <div class="section">
+                        <h4>About</h4>
+                        I'm Brandon Harrison.  I was born in Dallas, Texas, and currently live in Austin.  I'm studying at the University of Texas at Austin.  I spend a lot of time tinkering around with my Linux machines and automating everything that takes longer than 30 seconds.  In my freetime I backpack, woodwork, homebrew, rock climb, and ski whenever there's a three-day weekend.
+                    </div>
+                    <div class="section">
+                        <h4>Education</h4>
+                        <div class="entry">
+                            <span class="entrytitle">The University of Texas at Austin</span>
+                            <span class="subtitle"> &mdash; B.S. in Computer Science &mdash; 3.24 GPA</span>
+                            <br><span class="date">August 2015 &mdash; Expected May 2019</span>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <h4>Experience</h4>
+                        <div class="entry">
+                            <span class="entrytitle">E &amp; J Gallo Winery</span>
+                            <span class="subtitle"> &mdash; Programmer Analyst Intern</span>
+                            <br><span class="date">June 2019 &mdash; January 2019</span>
+                            <div class="detail">
+                                <ul>
+                                    <li>Working with the largest winery in the world to automate the creation and deployment of new brand-websites.</li>
+                                    <li>Automated the creation of resources in more than a dozen AWS services for ecommerce applications using a combination of Python scripting and AWS CloudFormation Templates.</li>
+                                    <li>Finished the original scope of the project in half the time of the internship, and continued extended features and goals.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="entry">
+                            <span class="entrytitle">RigUp</span>
+                            <span class="subtitle"> &mdash; Software Engineering Intern</span>
+                            <br><span class="date">October 2017 &mdash; Decemeber 2017</span>
+                            <div class="detail">
+                                <ul>
+                                    <li>Creating new components, frontend and backend, for a large web-application in a continuous integration environment.</li>
+                                    <li>Implementing and testing administration tools for use by the development team to increase productivity.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="entry">
+                            <span class="entrytitle">Hewlett Packard Enterprise</span>
+                            <span class="subtitle"> &mdash; Software Engineering Intern</span>
+                            <br><span class="date">May 2017 &mdash; August 2017</span>
+                            <div class="detail">
+                                <ul>
+                                    <li>Developed an internal web application from scratch which provided a centralized website to manage product information.</li>
+                                    <li>Completed required tasks nearly a month before deadline and continued adding stretch goals.</li>
+                                    <li>The application was highlighted at the VP level as a success.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <h4>Projects</h4>
+                        <div class="entry">
+                            <span class="entrytitle">Studious</span>
+                            <span class="subtitle"> &mdash; An organizational tool</span>
+                            <div class="detail">
+                                <ul>
+                                    <li>Sole developer for Java software to automatically identify and set reminders for homework assignments in UT classes.</li>
+                                    <li>Collected information by web-scraping university websites and integrating with Google’s Calendar API.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <h4>Activites</h4>
+                        <div class="entry">
+                            <span class="entrytitle">Phi Kappa Psi Fraternity</span>
+                            <span class="subtitle"> &mdash; Risk Management Chairman</span>
+                            <div class="detail">
+                                <ul>
+                                    <li>Lead a team to plan and manage the risk of dozens of events including a multi-day event with over a thousand attendees.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="bio">
-          <h1>Hi, I'm <span class="highlight">Brandon.</span></h1>
-          <p> I'm a software developer from <br><span class="highlight">The University of Texas at Austin</span>.</p>
-        </div>
-      </div>
-      <div id="resume">
-        <div class="bobbing"><div id="logo"></div></div>
-        <div id="resumetext" class="text">
-          <div class="section">
-            <h4>About</h4>
-            I'm Brandon Harrison.  I was born in Dallas, Texas, and currently live in Austin.  I'm studying at the University of Texas at Austin and currently working at E & J Gallo on web development as part of their intern program.
-          </div>
-          <div class="section">
-            <h4>Education</h4>
-            <div class="entry">
-              <span class="entrytitle">The University of Texas at Austin</span>
-              <span class="subtitle"> &mdash; B.S. in Computer Science &mdash; 3.2 GPA</span>
-              <br><span class="date">August 2015 &mdash; Expected May 2019</span>
-            </div>
-          </div>
-          <div class="section">
-            <h4>Experience</h4>
-            <div class="entry">
-              <span class="entrytitle">RigUp</span>
-              <span class="subtitle"> &mdash; Software Engineering Intern</span>
-              <br><span class="date">October 2017 &mdash; Decemeber 2017</span>
-              <div class="detail">
-                <ul>
-                  <li>Creating new components, frontend and backend, for a large web-application in a continuous integration environment.</li>
-                  <li>Implementing and testing administration tools for use by the development team to increase productivity.</li>
-                </ul>
-              </div>
-            </div>
-            <div class="entry">
-              <span class="entrytitle">Hewlett Packard Enterprise</span>
-              <span class="subtitle"> &mdash; Software Engineering Intern</span>
-              <br><span class="date">May 2017 &mdash; August 2017</span>
-              <div class="detail">
-                <ul>
-                  <li>Developed an internal web application from scratch which provided a centralized website to manage product information.</li>
-                  <li>Completed required tasks nearly a month before deadline and continued adding stretch goals.</li>
-                  <li>The application was highlighted at the VP level as a success.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="section">
-            <h4>Projects</h4>
-            <div class="entry">
-              <span class="entrytitle">Studious</span>
-              <span class="subtitle"> &mdash; An organizational tool</span>
-              <div class="detail">
-                <ul>
-                  <li>Sole developer for Java software to automatically identify and set reminders for homework assignments in UT classes.</li>
-                  <li>Collected information by web-scraping university websites and integrating with Google’s Calendar API.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="section">
-            <h4>Activites</h4>
-            <div class="entry">
-              <span class="entrytitle">Phi Kappa Psi Fraternity</span>
-              <span class="subtitle"> &mdash; Risk Management Chairman</span>
-              <div class="detail">
-                <ul>
-                  <li>Lead a team to plan and manage the risk of dozens of events including a multi-day event with over a thousand attendees.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
+    </body>
 </html>
