@@ -63,7 +63,7 @@
         padding: 2.5em;
     }
 
-    .tint:hover:before { background: none; }
+    .tint:hover:before { opacity: 0; }
 }
 
 body {
@@ -163,6 +163,11 @@ p {
     color: #BF5700;
 }
 
+.school {
+    font-style: italic;
+    color: #BF5700;
+}
+
 .tint {
     height: 100vh;
     position: relative;
@@ -177,7 +182,7 @@ p {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 104, 191, 0.4);
+  background: linear-gradient(rgba(0, 104, 191, 0.2), rgba(0, 104, 191, .4));
   transition: all .3s linear;
 }
 

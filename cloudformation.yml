@@ -1,0 +1,101 @@
+Parameters:
+  websiteDomain:
+    Type: String
+Resources:
+  TopLevelBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref websiteDomain
+      Tags:
+        -
+          Key: Project
+          Value: ResumeWebsite
+      WebsiteConfiguration:
+        IndexDocument: index.html
+  WWWBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Join [ '', [ 'www.', !Ref websiteDomain ] ]
+      Tags:
+        -
+          Key: Project
+          Value: ResumeWebsite
+      WebsiteConfiguration:
+        RedirectAllRequestsTo:
+            HostName: !Ref websiteDomain
+  WebsitePolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref TopLevelBucket
+      PolicyDocument:
+        Statement:
+          -
+            Sid: PublicReadGetObject
+            Action: s3:GetObject
+            Effect: Allow
+            Resource: !Join [ '', [ 'arn:aws:s3:::', !Ref TopLevelBucket, '/*' ] ]
+            Principal: '*'
+  Certificate:
+    Type: AWS::CertificateManager::Certificate
+    Properties:
+      DomainName: !Ref websiteDomain
+      DomainValidationOptions:
+        - DomainName: !Ref websiteDomain
+          ValidationDomain: !Ref websiteDomain
+      SubjectAlternativeNames:
+        - !Join [ '', [ '*.', !Ref websiteDomain ] ]
+      Tags:
+        -
+          Key: Project
+          Value: ResumeWebsite
+  CloudFront:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      Tags:
+        -
+          Key: Project
+          Value: ResumeWebsite
+      DistributionConfig:
+        Aliases:
+          - !Ref websiteDomain
+          - !Join [ '', [ 'www.', !Ref websiteDomain ] ]
+        Enabled: true
+        DefaultCacheBehavior:
+            Compress: true
+            ForwardedValues:
+              Cookies:
+                Forward: none
+              QueryString: false
+            TargetOriginId: !Join [ '', [ 'S3-', !Ref websiteDomain ] ]
+            ViewerProtocolPolicy: redirect-to-https
+        DefaultRootObject: index.html
+        HttpVersion: http2
+        IPV6Enabled: true
+        Origins:
+          -
+            Id: !Join [ '', [ 'S3-', !Ref websiteDomain ] ]
+            DomainName: !GetAtt TopLevelBucket.DomainName
+            S3OriginConfig:
+              OriginAccessIdentity: ''
+        PriceClass: PriceClass_All
+        ViewerCertificate:
+          AcmCertificateArn: !Ref Certificate
+          SslSupportMethod: sni-only
+  RecordSetGroup:
+    Type: AWS::Route53::RecordSetGroup
+    Properties:
+      Comment: 'Routing for top-level and www subdomain.'
+      HostedZoneName: !Join [ '', [ !Ref websiteDomain, '.' ] ]
+      RecordSets:
+        -
+          Name: !Join [ '', [ !Ref websiteDomain, '.' ] ]
+          Type: 'A'
+          AliasTarget:
+            DNSName: !GetAtt CloudFront.DomainName
+            HostedZoneId: Z2FDTNDATAQYW2
+        -
+          Name: !Join [ '', [ 'www.', !Ref websiteDomain, '.' ] ]
+          Type: 'CNAME'
+          AliasTarget:
+            DNSName: !GetAtt CloudFront.DomainName
+            HostedZoneId: Z2FDTNDATAQYW2
