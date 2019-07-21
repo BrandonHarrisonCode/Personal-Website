@@ -1,0 +1,13 @@
+language: python
+python: "3.6"
+before_install:
+  - pip install boto3
+script: . deployCloudFormation.py
+deploy:
+  - provider: s3
+    bucket: ${TRAVIS_BRANCH}.com
+    local-dir: public_html
+    skip_cleanup: true
+    acl: public_read
+    on:
+      all_branches: true
