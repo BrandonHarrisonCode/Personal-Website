@@ -1,11 +1,18 @@
 import os
 import glob
 import pathlib
+import time
+
 import boto3
 
 TRAVIS_BRANCH = os.environ.get('TRAVIS_BRANCH')
 cloudformation = boto3.client('cloudformation')
+cloudfront = boto3.client('cloudfront')
 s3 = boto3.resource('s3')
+
+
+def current_milli_time():
+    return int(round(time.time() * 1000))
 
 
 def get_stacks(nextToken=None):
@@ -84,6 +91,7 @@ def syncS3(website_domain):
     TopLevelBucket = s3.Bucket(website_domain)
     print('Syncing to S3 bucket {}...'.format(website_domain))
 
+    items = []
     for file in glob.iglob('public_html/**', recursive=True):
         path = pathlib.Path(file)
         filename = str(path)
@@ -92,12 +100,43 @@ def syncS3(website_domain):
         path = pathlib.Path(*path.parts[1:])
         keyname = str(path)
         TopLevelBucket.upload_file(filename, keyname)
+        items.append('/' + keyname)
         print('  Uploaded {}...'.format(keyname))
+    return items
 
 
-def invalidate_distribution(website_domain):
-    print('Invalidating CloudFront distribution {}...'.format(website_domain))
-    pass
+def get_distribution(website_domain):
+    all_distributions = []
+    marker = None
+    response = cloudfront.list_distributions()['DistributionList']
+    marker = response.get('NextMarker')
+    for distribution in response.get('Items'):
+        all_distributions.append(distribution)
+    while marker is not None:
+        response = cloudfront.list_distributions(Marker=marker)['DistributionList']
+        marker = response.get('NextMarker')
+        for distribution in response.get('Items'):
+            all_distributions.append(distribution)
+
+    for distribution in all_distributions:
+        if website_domain in distribution['Aliases']['Items']:
+            return distribution['Id']
+
+
+def invalidate_distribution(website_domain, items):
+    id = get_distribution(website_domain)
+    print('Invalidating CloudFront distribution {} with id {}...'.format(website_domain, id))
+
+    response = cloudfront.create_invalidation(
+        DistributionId=id,
+        InvalidationBatch={
+            'Paths': {
+                'Quantity': len(items),
+                'Items': items,
+            },
+            'CallerReference': str(current_milli_time())
+        }
+    )
 
 
 if __name__ == '__main__':
@@ -108,5 +147,6 @@ if __name__ == '__main__':
         website_domain = 'brandonharrisoncode.com' if TRAVIS_BRANCH == 'master' else TRAVIS_BRANCH + '.com'
         stack_name = 'brandonharrisoncode' if TRAVIS_BRANCH == 'master' else TRAVIS_BRANCH
         if create_stack(stack_name, website_domain):
-            syncS3(website_domain)
-            invalidate_distribution(website_domain)
+            items = syncS3(website_domain)
+            invalidate_distribution(website_domain, items)
+            print('Done!')
