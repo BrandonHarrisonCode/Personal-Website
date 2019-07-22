@@ -58,6 +58,7 @@ def create_stack(stack_name, website_domain):
         response = cloudformation.create_stack(
             StackName=stack_name,
             TemplateBody=file.read(),
+            TimeoutInMinutes=45,
             Parameters=[
                 {
                     'ParameterKey': 'websiteDomain',
