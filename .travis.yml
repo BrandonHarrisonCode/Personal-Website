@@ -2,4 +2,4 @@ language: python
 python: "3.6"
 install:
   - pip install boto3
-script: . deployCloudFormation.py
+script: python3 deployCloudFormation.py
