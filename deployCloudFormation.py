@@ -2,6 +2,7 @@ import os
 import glob
 import pathlib
 import time
+import mimetypes
 
 import boto3
 
@@ -99,7 +100,18 @@ def syncS3(website_domain):
             continue
         path = pathlib.Path(*path.parts[1:])
         keyname = str(path)
-        TopLevelBucket.upload_file(filename, keyname)
+
+        mimetype, _ = mimetypes.guess_type(filename)
+        if mimetype is None:
+            raise Exception("Failed to guess mimetype")
+
+        TopLevelBucket.upload_file(
+            Filename=filename,
+            Key=keyname,
+            ExtraArgs={
+                "ContentType": mimetype
+            }
+        )
         items.append('/' + keyname)
         print('  Uploaded {}...'.format(keyname))
     return items
