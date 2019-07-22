@@ -88,22 +88,33 @@ def create_stack(stack_name, website_domain):
         return False
 
 
+def guess_mimetype(filename):
+    mimetype, _ = mimetypes.guess_type(filename)
+    return mimetype
+
+
+def get_aws_filenames(raw):
+    path = pathlib.Path(raw)
+    filename = str(path)
+    if not path.is_file():
+        return None, None, None
+    path = pathlib.Path(*path.parts[1:])
+    keyname = str(path)
+
+    mimetype = guess_mimetype(filename)
+    return filename, keyname, mimetype
+
+
+
 def syncS3(website_domain):
     TopLevelBucket = s3.Bucket(website_domain)
     print('Syncing to S3 bucket {}...'.format(website_domain))
 
     items = []
-    for file in glob.iglob('public_html/**', recursive=True):
-        path = pathlib.Path(file)
-        filename = str(path)
-        if not path.is_file():
+    for to_upload in glob.iglob('public_html/**', recursive=True):
+        filename, keyname, mimetype = get_aws_filenames(to_upload)
+        if filename is None or keyname is None or mimetype is None:
             continue
-        path = pathlib.Path(*path.parts[1:])
-        keyname = str(path)
-
-        mimetype, _ = mimetypes.guess_type(filename)
-        if mimetype is None:
-            raise Exception("Failed to guess mimetype")
 
         TopLevelBucket.upload_file(
             Filename=filename,
