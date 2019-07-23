@@ -167,9 +167,11 @@ if __name__ == '__main__':
     print('TRAVIS_BRANCH is {}'.format(TRAVIS_BRANCH))
     if TRAVIS_BRANCH is None:
         print('This script is for TravisCI deployment only!  Exiting...')
+    elif TRAVIS_BRANCH == 'master':
+        print('Build for Master branch.  Nothing to do.')
     else:
-        website_domain = 'brandonharrisoncode.com' if TRAVIS_BRANCH == 'master' else TRAVIS_BRANCH + '.com'
-        stack_name = 'brandonharrisoncode' if TRAVIS_BRANCH == 'master' else TRAVIS_BRANCH
+        website_domain = TRAVIS_BRANCH + '.com'
+        stack_name = TRAVIS_BRANCH
         if create_stack(stack_name, website_domain):
             items = syncS3(website_domain)
             invalidate_distribution(website_domain, items)
