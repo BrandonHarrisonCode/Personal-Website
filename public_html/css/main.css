@@ -96,6 +96,7 @@ h1, h2, h3, h4, h5, h6, h7 {
 .entrytitle {
     font-family: "merriweather";
     font-weight: bold;
+    color: #0068bf;
 }
 
 .subtitle {
@@ -118,7 +119,7 @@ h1, h2, h3, h4, h5, h6, h7 {
 .section h4 {
     font-family: "open-sans";
     text-transform: uppercase;
-    color: #0068bf;
+    color: #BF5700;
     font-weight: bold;
     font-style: italic;
     padding-bottom: 1em;
