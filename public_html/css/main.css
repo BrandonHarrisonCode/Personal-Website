@@ -96,6 +96,7 @@ h1, h2, h3, h4, h5, h6, h7 {
 .entrytitle {
     font-family: "merriweather";
     font-weight: bold;
+    color: #04376a;
 }
 
 .subtitle {
@@ -118,12 +119,12 @@ h1, h2, h3, h4, h5, h6, h7 {
 .section h4 {
     font-family: "open-sans";
     text-transform: uppercase;
-    color: #0068bf;
+    color: #BF5700;
     font-weight: bold;
     font-style: italic;
     padding-bottom: 1em;
 }
-
+    /* color: #0068bf; */
 #resume {
     text-align: left;
 }
@@ -161,6 +162,12 @@ p {
 .highlight {
     font-style: italic;
     color: #BF5700;
+}
+
+
+.current-work {
+    font-style: italic;
+    color: #00b388;
 }
 
 .tint {
