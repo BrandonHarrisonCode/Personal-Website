@@ -23,15 +23,17 @@ const largeScreen = window.matchMedia( "(min-device-width: 40em)" );
 largeScreen.addListener(WidthChange);
 
 async function portraitLoad() {
-    window.scrollTo(0, 0);
+    var intro = document.getElementById('intro')
+    var headshot = document.getElementById('headshot')
+    var logo = document.getElementById('logo');
+    var resume = document.getElementById('resume');
+    var resumetext = document.getElementById('resumetext');
+    var bio = document.getElementById('bio');
+    var tint = document.getElementById('tint');
 
     if(!largeScreen.matches) {
         var intro = document.getElementById('intro');
         intro.style.visibility = 'visible';
-
-        var logo = document.getElementById('logo');
-        var resume = document.getElementById('resume');
-        var resumetext = document.getElementById('resumetext');
 
         resumetext.style.visibility = 'visible';
         logo.style.visibility = 'hidden';
@@ -40,12 +42,22 @@ async function portraitLoad() {
         return;
     }
 
-    var intro = document.getElementById('intro')
-    var headshot = document.getElementById('headshot')
-    var logo = document.getElementById('logo');
-    var resume = document.getElementById('resume');
-    var resumetext = document.getElementById('resumetext');
-    var bio = document.getElementById('bio');
+    if ('hasCodeRunBefore' in localStorage) {
+        resume.style.width = '50vw';
+        resume.style.overflowX = 'hidden';
+        headshot.style.width = '50vw';
+        bio.fontSize = '1.6vw';
+        document.body.classList.remove("noscroll");
+
+        resumetext.style.visibility = 'visible';
+        headshot.style.visibility = 'visible';
+        bio.style.visibility = 'visible';
+        tint.style.visibility = 'visible';
+        logo.style.visibility = 'hidden';
+        return;
+    }
+    localStorage.setItem("hasCodeRunBefore", true);
+    window.scrollTo(0, 0);
 
     await sleep(2000);
 
