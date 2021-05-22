@@ -68,7 +68,7 @@
 
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Ubuntu, Roboto, sans-serif;
     background: #FFF5EE;
     color: #000718;
     font-size: 1.1em;
@@ -94,30 +94,30 @@ h1, h2, h3, h4, h5, h6, h7 {
 }
 
 .entrytitle {
-    font-family: "merriweather";
+    font-family: Ubuntu, Roboto, sans-serif;
     font-weight: bold;
     color: #04376a;
 }
 
 .subtitle {
-    font-family: "merriweather";
+    font-family: Ubuntu, Roboto, sans-serif;
     font-style: italic;
 }
 
 .detail {
-    font-familiy: "merriweather";
+    font-family: Ubuntu, Roboto, sans-serif;
     font-size: .9em;
     color: #737373;
 }
 
 .date {
+    font-family: Ubuntu, Roboto, sans-serif;
     font-size: .8em;
-    font-family: "open-sans";
     color: #737373;
 }
 
 .section h4 {
-    font-family: "open-sans";
+    font-family: Ubuntu, Roboto, sans-serif;
     text-transform: uppercase;
     color: #BF5700;
     font-weight: bold;
