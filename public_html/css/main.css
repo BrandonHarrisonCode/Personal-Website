@@ -84,18 +84,13 @@ h1, h2, h3, h4, h5, h6, h7 {
     margin: 0;
 }
 
-.section {
-    padding-bottom: 2em;
-    line-heigth: 3;
-}
-
 .entry {
     padding-bottom: 1em;
 }
 
 .entrytitle {
     font-family: Ubuntu, Roboto, sans-serif;
-    font-weight: bold;
+    font-weight: 600;
     color: #04376a;
 }
 
@@ -107,7 +102,7 @@ h1, h2, h3, h4, h5, h6, h7 {
 .detail {
     font-family: Ubuntu, Roboto, sans-serif;
     font-size: .9em;
-    color: #737373;
+    color: #434343;
 }
 
 .date {
@@ -116,15 +111,19 @@ h1, h2, h3, h4, h5, h6, h7 {
     color: #737373;
 }
 
-.section h4 {
-    font-family: Ubuntu, Roboto, sans-serif;
-    text-transform: uppercase;
-    color: #BF5700;
-    font-weight: bold;
-    font-style: italic;
-    padding-bottom: 1em;
+.section {
+  padding-bottom: 2em;
 }
-    /* color: #0068bf; */
+
+
+.section .title {
+    padding-bottom: .3em;
+    font-size: 2.28rem;
+    font-family: Ubuntu, Roboto, sans-serif;
+    color: #BF5700;
+    font-weight: 400;
+}
+
 #resume {
     text-align: left;
 }

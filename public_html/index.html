@@ -9,6 +9,7 @@
     </head>
     <body class="noscroll">
         <div class="wrapper">
+
             <div id="intro">
                 <div class="portrait tint">
                     <img id="headshot" onload="portraitLoad()" src="resources/smallheadshot.jpg" srcset="resources/smallheadshot.jpg 1x, resources/headshot.jpg 2x" alt="Portrait of Brandon">
@@ -18,41 +19,48 @@
                     <p> I'm a software developer working for <br><span class="current-work">Hewlett Packard Enterprise</span>.</p>
                 </div>
             </div>
+
             <div id="resume">
                 <div class="bobbing"><div id="logo"></div></div>
                 <div id="resumetext" class="text">
+
                     <div class="section">
-                        <h4>About</h4>
+                      <h2 class="title">About</h2>
                         Howdy! I'm Brandon Harrison and I'm <span id="age"></span> years old. I'm a software developer with an emphasis on backend development. My alma mater is <a href="https://www.utexas.edu/">The University of Texas at Austin,</a> where I learned how to ride horses and yee-haw real good. But since then I've started wearing Patagonia jackets and complaining about Californian transplants in Denver, Colorado. Right now, I'm working on infrastructure automation at <a href="https://www.hpe.com/us/en/home.html">Hewlett Packard Enterprise</a>.
                     </div>
-                    <div class="section">
-                        <h4>Education</h4>
-                        <div class="entry">
-                            <span class="entrytitle">The University of Texas at Austin</span>
-                            <span class="subtitle"> &mdash; B.S. in Computer Science &mdash; 3.3 GPA</span>
-                            <br><span class="date">August 2015 &mdash; May 2019</span>
-                        </div>
-                    </div>
-                    <div class="section">
-                        <h4>Experience</h4>
+
+                   <div class="section">
+                        <h2 class="title">Industry Experience</h2>
                         <div class="entry">
                             <span class="entrytitle">Hewlett Packard Enterprise</span>
                             <span class="subtitle"> &mdash; DevOps Infrastructure Automation Engineer</span>
                             <br><span class="date">August 2019 &mdash; Present</span>
                             <div class="detail">
                                 <ul>
-                                    <li>Leading initiative to restructure our new hire onboarding process, creating projects and lectures to teach automation tools and DevOps concepts. Reducing the onboarding time by over 50%.</li>
-                                    <li>Leveraged Ansible and Terraform to reduce deployment times of SAP infrastructure saving 15 hours per deployment.</li>
+                                    <li>Organized a team to develop DevSecOps practices by automating the auditing and hardening of Linux machines using Ansible and Inspec. Slashed audit times by 600+ hours per month.</li>
+                                    <li>Programmed custom plugins in Python 3 to parse gigabyte-sized Excel spreadsheets for Ansible automation, saving 100+ hours per month.</li>
+                                    <li>Established an onboarding process for new-hires by creating projects and lectures for technical concepts, ultimately reducing onboarding times by half.</li>
+                                    <li>Designed an SAP as a service offering using Ansible and Terraform to create on-demand SAP infrastructure, decreasing deployment times by 15 hours per deployment.</li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="entry">
-                            <span class="entrytitle">E &amp; J Gallo Winery</span>
+                       <div class="entry">
+                          <span class="entrytitle">E &amp; J Gallo Winery</span>
                             <span class="subtitle"> &mdash; Programmer Analyst Intern</span>
                             <br><span class="date">June 2019 &mdash; January 2019</span>
                             <div class="detail">
                                 <ul>
-                                    <li>Utilized CloudFormation, Bash, and Python scripting to deploy new E-Commerce platforms: speeding up deployments nearly 1000%.</li>
+                                    <li>Sped up deployments by nearly 1000% by pioneering CloudFormation, Bash, and Python scripting to deploy new E-Commerce platforms.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="entry">
+                            <span class="entrytitle">RigUp</span>
+                            <span class="subtitle"> &mdash; Software Engineering Intern</span>
+                            <br><span class="date">October 2017 &mdash; December 2017</span>
+                            <div class="detail">
+                                <ul>
+                                    <li>Remodeled Angular components in a Ruby on Rails contracting service using Jira and Code-Ship to fix customer-reported bugs and to reduce code complexity.</li>
                                 </ul>
                             </div>
                         </div>
@@ -62,13 +70,21 @@
                             <br><span class="date">May 2017 &mdash; August 2017</span>
                             <div class="detail">
                                 <ul>
-                                    <li>Architected and developed a web app to track HPE Synergy products’ development pipelines using React, Flask, MySQL, authentication with LDAP, and automated testing with PyTest.</li>
+                                    <li>Owned and architected a web application to track HPE products’ development pipelines using React, Flask, MySQL, authentication with LDAP, and automated testing with PyTest, implementing new features after feedback from stakeholders.</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="section">
-                        <h4>Projects</h4>
+                        <h2 class="title">Education</h2>
+                        <div class="entry">
+                            <span class="entrytitle">The University of Texas at Austin</span>
+                            <span class="subtitle"> &mdash; B.S. in Computer Science &mdash; 3.3 GPA</span>
+                            <br><span class="date">August 2015 &mdash; May 2019</span>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <h2 class="title">Projects</h2>
                         <div class="entry">
                             <span class="entrytitle">CFB Game of the Week</span>
                             <span class="subtitle"> &mdash; <a href="https://cfbgameoftheweek.com/">https://cfbgameoftheweek.com/</a></span>
