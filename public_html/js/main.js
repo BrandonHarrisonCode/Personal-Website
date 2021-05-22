@@ -76,6 +76,19 @@ async function portraitLoad() {
     logo.style.visibility = 'hidden';
 }
 
+function updateAge() {
+  let yearsOld = dateDiffInYears(new Date(Date.UTC(1997, 0, 9, 7, 12)), new Date());
+  document.getElementById('age').textContent = yearsOld;
+  setTimeout(updateAge, 100);
+}
+setTimeout(updateAge, 100);
+
+function dateDiffInYears(date0, date1) {
+  const millisecondsPerYear = 1000 * 60 * 60 * 24 * 365.24;
+
+  return (date1.getTime() - date0.getTime()) / millisecondsPerYear;
+}
+
 function addClass(elem, className) {
     if (elem.classList)
         elem.classList.add(className);
