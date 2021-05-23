@@ -1,179 +1,340 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Brandon Harrison</title>
-        <link rel="stylesheet" type="text/css" href="css/main.css"/>
-        <script src="js/main.js"></script>
-    </head>
-    <body class="noscroll">
-        <div class="wrapper">
-
-            <div id="intro">
-                <div id="tint" class="portrait tint">
-                    <img id="headshot" onload="portraitLoad()" src="resources/smallheadshot.jpg" srcset="resources/smallheadshot.jpg 1x, resources/headshot.jpg 2x" alt="Portrait of Brandon">
-                </div>
-                <div id="bio">
-                    <h1>Hi, I'm <span class="highlight">Brandon.</span></h1>
-                    <p> I'm a software developer working for <br><span class="current-work">Hewlett Packard Enterprise</span>.</p>
-                </div>
-            </div>
-
-            <div id="resume">
-                <div class="bobbing"><div id="logo"></div></div>
-                <div id="resumetext" class="text">
-
-                    <div class="section">
-                      <h2 class="title">About</h2>
-                        Howdy! I'm Brandon Harrison and I'm <span id="age"></span> years old. I'm a software developer with an emphasis on backend development. My alma mater is <a href="https://www.utexas.edu/">The University of Texas at Austin,</a> where I learned how to ride horses and yee-haw real good. But since then I've started wearing Patagonia jackets and complaining about Californian transplants in Denver, Colorado. Right now, I'm working on infrastructure automation at <a href="https://www.hpe.com/us/en/home.html">Hewlett Packard Enterprise</a>.
-                    </div>
-
-                   <div class="section">
-                        <h2 class="title">Industry Experience</h2>
-                        <div class="entry">
-                            <span class="entrytitle">Hewlett Packard Enterprise</span>
-                            <span class="subtitle"> &mdash; DevOps Infrastructure Automation Engineer</span>
-                            <br><span class="date">August 2019 &mdash; Present</span>
-                            <div class="detail">
-                                <ul>
-                                    <li>Organized a team to develop DevSecOps practices by automating the auditing and hardening of Linux machines using Ansible and Inspec. Slashed audit times by 600+ hours per month.</li>
-                                    <li>Programmed custom plugins in Python 3 to parse gigabyte-sized Excel spreadsheets for Ansible automation, saving 100+ hours per month.</li>
-                                    <li>Established an onboarding process for new-hires by creating projects and lectures for technical concepts, ultimately reducing onboarding times by half.</li>
-                                    <li>Designed an SAP as a service offering using Ansible and Terraform to create on-demand SAP infrastructure, decreasing deployment times by 15 hours per deployment.</li>
-                                </ul>
-                            </div>
-                        </div>
-                       <div class="entry">
-                          <span class="entrytitle">E &amp; J Gallo Winery</span>
-                            <span class="subtitle"> &mdash; Programmer Analyst Intern</span>
-                            <br><span class="date">June 2019 &mdash; January 2019</span>
-                            <div class="detail">
-                                <ul>
-                                    <li>Sped up deployments by nearly 1000% by pioneering CloudFormation, Bash, and Python scripting to deploy new E-Commerce platforms.</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="entry">
-                            <span class="entrytitle">RigUp</span>
-                            <span class="subtitle"> &mdash; Software Engineering Intern</span>
-                            <br><span class="date">October 2017 &mdash; December 2017</span>
-                            <div class="detail">
-                                <ul>
-                                    <li>Remodeled Angular components in a Ruby on Rails contracting service using Jira and Code-Ship to fix customer-reported bugs and to reduce code complexity.</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="entry">
-                            <span class="entrytitle">Hewlett Packard Enterprise</span>
-                            <span class="subtitle"> &mdash; Software Engineering Intern</span>
-                            <br><span class="date">May 2017 &mdash; August 2017</span>
-                            <div class="detail">
-                                <ul>
-                                    <li>Owned and architected a web application to track HPE products’ development pipelines using React, Flask, MySQL, authentication with LDAP, and automated testing with PyTest, implementing new features after feedback from stakeholders.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="section">
-                        <h2 class="title">Education</h2>
-                        <div class="entry">
-                            <span class="entrytitle">The University of Texas at Austin</span>
-                            <span class="subtitle"> &mdash; B.S. in Computer Science &mdash; 3.3 GPA</span>
-                            <br><span class="date">August 2015 &mdash; May 2019</span>
-                        </div>
-                    </div>
-                    <div class="section">
-                        <h2 class="title">Projects</h2>
-                        <div class="entry">
-                          <span class="entrytitle">The Dad-A-Base</span>
-                          <span class="subtitle"> &mdash; <a href="https://dad-a-base.online/">https://dad-a-base.online/</a></span>
-                            <br/>
-                            Scaling, robust website automatically tested and deployed using Heroku to tell dad jokes
-                            <div class="detail">
-                                <ul>
-                                    <li>Utilizes TravisCI to automatically test and deploy a Gatsby based website. Utilizes a Flask and Postgres based backend to manage traffic with PyTest and Jest to test.</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="entry">
-                            <span class="entrytitle">CFB Game of the Week</span>
-                            <span class="subtitle"> &mdash; <a href="https://cfbgameoftheweek.com/">https://cfbgameoftheweek.com/</a></span>
-                            <br/>
-                            Automatically ranks college football games by how entertaining they are to watch
-                            <div class="detail">
-                                <ul>
-                                    <li>Invented a ”scheduled-scaling” serverless web app using AWS Serverless Application Model (SAM), NoSQL databases, automated testing and deployment with TravisCI, Jest, and PyTest, and a frontend in React.</li>
-                                    <li>Created a model using Scikit-learn, SciPy, Pandas, and NumPy in order to automatically rank college football games by an “entertainment score.”</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="entry">
-                            <span class="entrytitle">BingoBot for GroupMe</span>
-                            <span class="subtitle"> &mdash; <a href="https://github.com/BrandonHarrisonCode/BingoBot">https://github.com/BrandonHarrisonCode/BingoBot</a></span>
-                            <br/>
-                            A GroupMe bot that generates bingo cards on demand
-                            <div class="detail">
-                                <ul>
-                                  <li>Developed a <a href="https://groupme.com/">GroupMe</a> bot that listens for user requests and dynamically generates, stores, and delivers a unique, pseudorandom PDF bingo card using a custom word bank using the GroupMe API, Python3, Flask, Gunicorn, and Heroku.</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="entry">
-                          <span class="entrytitle">Shakespeare Machine Reading and Character Analysis</span>
-
-                          <span class="subtitle"> &mdash; <a href="https://github.com/joswiatek/nlp-project-2">GitHub</a>, <a href="https://docs.google.com/document/d/12SJagwD5HBbZ8I_BTD5iG2RK7JVDv-_rnR-RHJEI3QA/edit?usp=sharing">White Paper</a></span>
-                          <br/>
-                          Analyzes Shakespeare’s texts to contextually determine the relationship between characters
-                            <div class="detail">
-                                <ul>
-                                    <li>Led a team of developers in a machine reading project utilizing spaCy, CoreNLP, Postgres, Neo4J, and OpenIE to solve named entity recognition and coreference resolution issues in Shakespearean English to determine relationships between Shakespeare’s characters.</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="entry">
-                          <span class="entrytitle">Yelp Sentiment Analysis</span>
-                            <span class="subtitle"> &mdash; <a href="https://github.com/BrandonHarrisonCode/yelp-sentiment-analyis">GitHub</a>, <a href="https://docs.google.com/document/d/1RCrNwFbuVEeJHLGgzh68LR9sXO2NaMQinsX-Kv73JQo/edit?usp=sharing">White Paper</a></span>
-                            <br/>
-                          <br/>
-                          Evaluates positive or negative sentiment from Yelp reviews to determine the most and least liked dishes in a restaurant
-                            <div class="detail">
-                                <ul>
-                                    <li>Trained a named entity recognition (NER) and sentiment analysis model to identify dishes and analyze Yelp reviews. Dishes were associated with review sentiments to determine if reviewers had a favorable or unfavorable opinion of their experience after having a dish.</li>
-                                    <li>Built a frontend in React, with a backend server running Flask, SpaCy, and TextBlob on AWS, supported by a DynamoDB database. Utilized Amazon Turk to crowdsource our training data.</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="entry">
-                          <span class="entrytitle">National Parks Service NLP Question Answering</span>
-                            <span class="subtitle"> &mdash; <a href="https://github.com/BrandonHarrisonCode/NLPQnA">GitHub</a>, <a href="https://docs.google.com/document/d/1IuQvKoaWZ7Wvgog0Ri1G7d_rP78qDEfXxdAwCTesMEY/edit?usp=sharing">White Paper</a></span>
-                            <br/>
-                          <br/>
-                          Answers human-written questions about National Parks using Natural Language Processing
-                            <div class="detail">
-                                <ul>
-                                    <li>Independently developed and deployed a dockerized web service to AWS ECS that utilizes DeepPavlov, Flask, Google Maps API, and the NPS Data API in order to contextually answer natural-language questions about America’s National Parks.</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="entry">
-                          <span class="entrytitle">Explain a Movie Badly</span>
-                            <span class="subtitle"> &mdash; <a href="https://github.com/flippedAben/prac-nlp-solr">https://github.com/flippedAben/prac-nlp-solr</a></span>
-                            <br/>
-                          <br/>
-                          A website to identify movies based off of one sentence summaries
-                            <div class="detail">
-                                <ul>
-                                  <li>Designed a service to identify movies from one sentence plot summaries from the <a href="https://www.reddit.com/r/ExplainAMovieBadly/">ExplainAMovieBadly subreddit</a> using a React frontend and an Apache Solr search platform.</li>
-                                  <li>Constructed a Reddit bot which scraped plot summaries and associated movies, built a search space in Apache Solr, and deployed the webapp on AWS.</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Brandon Harrison</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <script src="js/main.js"></script>
+  </head>
+  <body class="noscroll">
+    <div class="wrapper">
+      <div id="intro">
+        <div id="tint" class="portrait tint">
+          <img
+            id="headshot"
+            src="resources/smallheadshot.jpg"
+            srcset="resources/smallheadshot.jpg 1x, resources/headshot.jpg 2x"
+            alt="Portrait of Brandon"
+          />
         </div>
-    </body>
+        <div id="bio">
+          <h1>Hi, I'm <span class="highlight">Brandon.</span></h1>
+          <p>
+            I'm a software developer working for <br /><span
+              class="current-work"
+              >Hewlett Packard Enterprise</span
+            >.
+          </p>
+        </div>
+      </div>
+
+      <div id="resume">
+        <div class="bobbing"><div id="logo"></div></div>
+        <div id="resumetext" class="text">
+          <div class="section">
+            <h2 class="title">About</h2>
+            Howdy! I'm Brandon Harrison and I'm <span id="age"></span> years
+            old. I'm a software developer with an emphasis on backend
+            development. My alma mater is
+            <a href="https://www.utexas.edu/"
+              >The University of Texas at Austin,</a
+            >
+            where I learned how to ride horses and yee-haw real good. But since
+            then I've started wearing Patagonia jackets and complaining about
+            Californian transplants in Denver, Colorado. Right now, I'm working
+            on infrastructure automation at
+            <a href="https://www.hpe.com/us/en/home.html"
+              >Hewlett Packard Enterprise</a
+            >.
+          </div>
+
+          <div class="section">
+            <h2 class="title">Industry Experience</h2>
+            <div class="entry">
+              <span class="entrytitle">Hewlett Packard Enterprise</span>
+              <span class="subtitle">
+                &mdash; DevOps Infrastructure Automation Engineer</span
+              >
+              <br /><span class="date">August 2019 &mdash; Present</span>
+              <div class="detail">
+                <ul>
+                  <li>
+                    Organized a team to develop DevSecOps practices by
+                    automating the auditing and hardening of Linux machines
+                    using Ansible and Inspec. Slashed audit times by 600+ hours
+                    per month.
+                  </li>
+                  <li>
+                    Programmed custom plugins in Python 3 to parse
+                    gigabyte-sized Excel spreadsheets for Ansible automation,
+                    saving 100+ hours per month.
+                  </li>
+                  <li>
+                    Established an onboarding process for new-hires by creating
+                    projects and lectures for technical concepts, ultimately
+                    reducing onboarding times by half.
+                  </li>
+                  <li>
+                    Designed an SAP as a service offering using Ansible and
+                    Terraform to create on-demand SAP infrastructure, decreasing
+                    deployment times by 15 hours per deployment.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="entry">
+              <span class="entrytitle">E &amp; J Gallo Winery</span>
+              <span class="subtitle"> &mdash; Programmer Analyst Intern</span>
+              <br /><span class="date">June 2019 &mdash; January 2019</span>
+              <div class="detail">
+                <ul>
+                  <li>
+                    Sped up deployments by nearly 1000% by pioneering
+                    CloudFormation, Bash, and Python scripting to deploy new
+                    E-Commerce platforms.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="entry">
+              <span class="entrytitle">RigUp</span>
+              <span class="subtitle"> &mdash; Software Engineering Intern</span>
+              <br /><span class="date">October 2017 &mdash; December 2017</span>
+              <div class="detail">
+                <ul>
+                  <li>
+                    Remodeled Angular components in a Ruby on Rails contracting
+                    service using Jira and Code-Ship to fix customer-reported
+                    bugs and to reduce code complexity.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="entry">
+              <span class="entrytitle">Hewlett Packard Enterprise</span>
+              <span class="subtitle"> &mdash; Software Engineering Intern</span>
+              <br /><span class="date">May 2017 &mdash; August 2017</span>
+              <div class="detail">
+                <ul>
+                  <li>
+                    Owned and architected a web application to track HPE
+                    products’ development pipelines using React, Flask, MySQL,
+                    authentication with LDAP, and automated testing with PyTest,
+                    implementing new features after feedback from stakeholders.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="section">
+            <h2 class="title">Education</h2>
+            <div class="entry">
+              <span class="entrytitle">The University of Texas at Austin</span>
+              <span class="subtitle">
+                &mdash; B.S. in Computer Science &mdash; 3.3 GPA</span
+              >
+              <br /><span class="date">August 2015 &mdash; May 2019</span>
+            </div>
+          </div>
+          <div class="section">
+            <h2 class="title">Projects</h2>
+            <div class="entry">
+              <span class="entrytitle">The Dad-A-Base</span>
+              <span class="subtitle">
+                &mdash;
+                <a href="https://dad-a-base.online/"
+                  >https://dad-a-base.online/</a
+                ></span
+              >
+              <br />
+              Scaling, robust website automatically tested and deployed using
+              Heroku to tell dad jokes
+              <div class="detail">
+                <ul>
+                  <li>
+                    Utilizes TravisCI to automatically test and deploy a Gatsby
+                    based website. Utilizes a Flask and Postgres based backend
+                    to manage traffic with PyTest and Jest to test.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="entry">
+              <span class="entrytitle">CFB Game of the Week</span>
+              <span class="subtitle">
+                &mdash;
+                <a href="https://cfbgameoftheweek.com/"
+                  >https://cfbgameoftheweek.com/</a
+                ></span
+              >
+              <br />
+              Automatically ranks college football games by how entertaining
+              they are to watch
+              <div class="detail">
+                <ul>
+                  <li>
+                    Invented a ”scheduled-scaling” serverless web app using AWS
+                    Serverless Application Model (SAM), NoSQL databases,
+                    automated testing and deployment with TravisCI, Jest, and
+                    PyTest, and a frontend in React.
+                  </li>
+                  <li>
+                    Created a model using Scikit-learn, SciPy, Pandas, and NumPy
+                    in order to automatically rank college football games by an
+                    “entertainment score.”
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="entry">
+              <span class="entrytitle">BingoBot for GroupMe</span>
+              <span class="subtitle">
+                &mdash;
+                <a href="https://github.com/BrandonHarrisonCode/BingoBot"
+                  >https://github.com/BrandonHarrisonCode/BingoBot</a
+                ></span
+              >
+              <br />
+              A GroupMe bot that generates bingo cards on demand
+              <div class="detail">
+                <ul>
+                  <li>
+                    Developed a <a href="https://groupme.com/">GroupMe</a> bot
+                    that listens for user requests and dynamically generates,
+                    stores, and delivers a unique, pseudorandom PDF bingo card
+                    using a custom word bank using the GroupMe API, Python3,
+                    Flask, Gunicorn, and Heroku.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="entry">
+              <span class="entrytitle"
+                >Shakespeare Machine Reading and Character Analysis</span
+              >
+
+              <span class="subtitle">
+                &mdash;
+                <a href="https://github.com/joswiatek/nlp-project-2">GitHub</a>,
+                <a
+                  href="https://docs.google.com/document/d/12SJagwD5HBbZ8I_BTD5iG2RK7JVDv-_rnR-RHJEI3QA/edit?usp=sharing"
+                  >White Paper</a
+                ></span
+              >
+              <br />
+              Analyzes Shakespeare’s texts to contextually determine the
+              relationship between characters
+              <div class="detail">
+                <ul>
+                  <li>
+                    Led a team of developers in a machine reading project
+                    utilizing spaCy, CoreNLP, Postgres, Neo4J, and OpenIE to
+                    solve named entity recognition and coreference resolution
+                    issues in Shakespearean English to determine relationships
+                    between Shakespeare’s characters.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="entry">
+              <span class="entrytitle">Yelp Sentiment Analysis</span>
+              <span class="subtitle">
+                &mdash;
+                <a
+                  href="https://github.com/BrandonHarrisonCode/yelp-sentiment-analyis"
+                  >GitHub</a
+                >,
+                <a
+                  href="https://docs.google.com/document/d/1RCrNwFbuVEeJHLGgzh68LR9sXO2NaMQinsX-Kv73JQo/edit?usp=sharing"
+                  >White Paper</a
+                ></span
+              >
+              <br />
+              <br />
+              Evaluates positive or negative sentiment from Yelp reviews to
+              determine the most and least liked dishes in a restaurant
+              <div class="detail">
+                <ul>
+                  <li>
+                    Trained a named entity recognition (NER) and sentiment
+                    analysis model to identify dishes and analyze Yelp reviews.
+                    Dishes were associated with review sentiments to determine
+                    if reviewers had a favorable or unfavorable opinion of their
+                    experience after having a dish.
+                  </li>
+                  <li>
+                    Built a frontend in React, with a backend server running
+                    Flask, SpaCy, and TextBlob on AWS, supported by a DynamoDB
+                    database. Utilized Amazon Turk to crowdsource our training
+                    data.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="entry">
+              <span class="entrytitle"
+                >National Parks Service NLP Question Answering</span
+              >
+              <span class="subtitle">
+                &mdash;
+                <a href="https://github.com/BrandonHarrisonCode/NLPQnA"
+                  >GitHub</a
+                >,
+                <a
+                  href="https://docs.google.com/document/d/1IuQvKoaWZ7Wvgog0Ri1G7d_rP78qDEfXxdAwCTesMEY/edit?usp=sharing"
+                  >White Paper</a
+                ></span
+              >
+              <br />
+              <br />
+              Answers human-written questions about National Parks using Natural
+              Language Processing
+              <div class="detail">
+                <ul>
+                  <li>
+                    Independently developed and deployed a dockerized web
+                    service to AWS ECS that utilizes DeepPavlov, Flask, Google
+                    Maps API, and the NPS Data API in order to contextually
+                    answer natural-language questions about America’s National
+                    Parks.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="entry">
+              <span class="entrytitle">Explain a Movie Badly</span>
+              <span class="subtitle">
+                &mdash;
+                <a href="https://github.com/flippedAben/prac-nlp-solr"
+                  >https://github.com/flippedAben/prac-nlp-solr</a
+                ></span
+              >
+              <br />
+              <br />
+              A website to identify movies based off of one sentence summaries
+              <div class="detail">
+                <ul>
+                  <li>
+                    Designed a service to identify movies from one sentence plot
+                    summaries from the
+                    <a href="https://www.reddit.com/r/ExplainAMovieBadly/"
+                      >ExplainAMovieBadly subreddit</a
+                    >
+                    using a React frontend and an Apache Solr search platform.
+                  </li>
+                  <li>
+                    Constructed a Reddit bot which scraped plot summaries and
+                    associated movies, built a search space in Apache Solr, and
+                    deployed the webapp on AWS.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
