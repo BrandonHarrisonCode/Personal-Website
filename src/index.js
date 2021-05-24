@@ -1,5 +1,8 @@
 "use strict";
 
+import './index.html';
+import './style.css';
+
 /**
  * Handles changes to the screen width.
  * @param {window.matchMedia} screensize The criteria for changing formats.

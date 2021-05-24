@@ -112,7 +112,7 @@ def syncS3(website_domain):
     print('Syncing to S3 bucket {}...'.format(website_domain))
 
     items = []
-    for to_upload in glob.iglob('public_html/**', recursive=True):
+    for to_upload in glob.iglob('dist/**', recursive=True):
         filename, keyname, mimetype = get_aws_filenames(to_upload)
         if filename is None or keyname is None or mimetype is None:
             continue
