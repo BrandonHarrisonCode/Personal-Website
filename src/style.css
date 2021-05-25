@@ -1,15 +1,17 @@
-@media screen and (max-device-width: 40em) {
+@media screen and (max-device-width: 60em) {
   .wrapper {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr;
   }
 
   #intro {
-    width: 100vw;
+    width: 100%;
     position: relative;
   }
 
   #bio {
-    font-size: 4vw;
+    padding-top: 3em;
+    grid-row: 1;
+    font-size: 1em;
     line-height: 1.2;
   }
 
@@ -18,27 +20,79 @@
   }
 
   #resume {
-    margin-left: 15px;
-    margin-right: 15px;
+    margin: 0 10%;
+  }
+
+  .arrows {
+    visibility: visible;
+    grid-row: 3;
+  }
+
+  .section.split {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+  }
+
+  .section.split .title {
+    grid-row: 1;
+    grid-column: 1;
+    text-align: center;
+  }
+
+  .entrywrapper {
+    grid-row: 2;
+    grid-column: 1;
+  }
+
+  .entry {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    border-bottom-color: rgb(215, 215, 215);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    margin-bottom: 1em;
+  }
+
+  .entry:last-child {
+    border-bottom-style: none;
+  }
+
+  .entry.haslogo {
+    grid-template-rows: 5em auto;
+  }
+
+  .entry .entrylogo {
+    grid-row: 1;
+    grid-column: 1;
+    background-size: contain;
+    background-position: left center;
+    margin-bottom: 1em;
+  }
+
+  .entry .entrycontent {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  .entry.haslogo .entrycontent {
+    grid-row: 2;
   }
 }
 
-@media screen and (min-device-width: 40em) {
+@media screen and (min-device-width: 60em) {
   .wrapper {
     grid-template-columns: 1fr 2fr;
   }
 
   #intro {
-    display: grid;
-    grid-template-rows: 4fr 1fr;
     position: fixed;
     visibility: hidden;
     width: calc(1 / calc(1 + 2) * 100vw);
-    height: 100vh;
   }
 
   #bio {
-    grid-row: 2;
+    grid-row: 3;
     font-size: 1.6em;
   }
 
@@ -64,6 +118,43 @@
   .text {
     padding: 2.5em;
   }
+  .arrows {
+    visibility: hidden;
+    grid-row: none;
+  }
+
+  .section.split {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: auto auto;
+  }
+
+  .section.split .title {
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  .entrywrapper {
+    grid-row: 2;
+    grid-column: 1 / span 2;
+  }
+
+  .entry {
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 1fr;
+  }
+
+  .entry .entrylogo {
+    grid-column: 1;
+    grid-row: 1;
+    background-size: 80%;
+    background-position: center top;
+  }
+
+  .entry .entrycontent {
+    grid-column: 2;
+    grid-row: 1;
+  }
 }
 
 body {
@@ -85,14 +176,14 @@ h6 {
   margin: 0;
 }
 
-.entrywrapper {
-  grid-row: 2;
-  grid-column: 1 / span 2;
+#intro {
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr;
+  height: 100vh;
 }
 
 .entry {
   display: grid;
-  grid-template-columns: 1fr 5fr;
   padding-bottom: 1em;
 }
 
@@ -100,38 +191,20 @@ h6 {
   text-align: center;
 }
 
-.section.split {
-  display: grid;
-  grid-template-columns: 1fr 5fr;
-  grid-template-rows: auto auto;
-}
-
-.entry .entrylogo {
-  grid-column: 1;
-}
-
-.entry .entrycontent {
-  grid-column: 2;
-}
-
 .hpelogo {
-  background: center top / contain no-repeat url("./logos/hpe.svg");
-  background-size: 80%;
+  background: no-repeat url("./logos/hpe.svg");
 }
 
 .gallologo {
-  background: center top / contain no-repeat url("./logos/gallo.jpg");
-  background-size: 80%;
+  background: no-repeat url("./logos/gallo.svg");
 }
 
 .riguplogo {
-  background: center top / contain no-repeat url("./logos/rigup.webp");
-  background-size: 80%;
+  background: no-repeat url("./logos/rigup.webp");
 }
 
 .utlogo {
-  background: center top / contain no-repeat url("./logos/ut.svg");
-  background-size: 80%;
+  background: no-repeat url("./logos/ut.svg");
 }
 
 .entrytitle {
@@ -173,11 +246,6 @@ h6 {
   font-size: 3.28rem;
 }
 
-.section.split .title {
-  grid-row: 1;
-  grid-column: 2;
-}
-
 #resume {
   text-align: left;
 }
@@ -215,7 +283,8 @@ p {
 }
 
 .portrait:hover::before {
-  box-shadow: rgba(0, 0, 0, 0.2) 3px 5px 5px;
+  box-shadow: rgba(0, 0, 0, 0.2) 3px 5px 5px,
+    inset 100vw 100vh rgba(0, 104, 191, 0);
 }
 
 .highlight {
@@ -225,7 +294,7 @@ p {
 
 .current-work {
   font-style: italic;
-  color: #00b388;
+  color: #bf5700;
 }
 
 .noscroll {
@@ -332,4 +401,66 @@ p {
     transform: translate(0, 4px) rotateZ(0.001deg);
     animation-timing-function: ease-in-out;
   }
+}
+
+.arrows {
+  width: 60px;
+  height: 72px;
+  position: absolute;
+  left: 50%;
+  margin-left: -30px;
+  bottom: 20px;
+}
+
+.arrows path {
+  stroke: #bf5700;
+  fill: transparent;
+  stroke-width: 2px;
+  -webkit-animation: arrow 2s infinite;
+  animation: arrow 2s infinite;
+}
+
+@keyframes arrow {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes arrow /*Safari and Chrome*/ {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.arrows path.a1 {
+  -webkit-animation-delay: -1s; /* Safari 和 Chrome */
+  animation-delay: -1s;
+}
+
+.arrows path.a2 {
+  -webkit-animation-delay: -0.5s; /* Safari 和 Chrome */
+  animation-delay: -0.5s;
+}
+
+.arrows path.a3 {
+  -webkit-animation-delay: 0s; /* Safari 和 Chrome */
+  animation-delay: 0s;
 }

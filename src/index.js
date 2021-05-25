@@ -7,23 +7,9 @@ import "./style.css";
  * Handles changes to the screen width.
  * @param {window.matchMedia} screensize The criteria for changing formats.
  */
-function WidthChange(screensize) {
-  const intro = document.getElementById("intro");
-  const logo = document.getElementById("logo");
-  const resume = document.getElementById("resume");
+function WidthChange(screensize) {}
 
-  if (screensize.matches) {
-    intro.style.width = "100%";
-    resume.style.width = "100%";
-    logo.style.width = "100%";
-  } else {
-    intro.style.width = "100vw";
-    resume.style.width = "100vw";
-    logo.style.width = "100vw";
-  }
-}
-
-const largeScreen = window.matchMedia("(min-device-width: 40em)");
+const largeScreen = window.matchMedia("(min-device-width: 60em)");
 largeScreen.addListener(WidthChange);
 
 /*
