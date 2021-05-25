@@ -88,7 +88,7 @@
   #intro {
     position: fixed;
     visibility: hidden;
-    width: calc(1 / calc(1 + 2) * 100vw);
+    max-width: calc(1 / calc(1 + 2) * 100vw);
   }
 
   #bio {
@@ -107,12 +107,14 @@
   }
 
   #logo {
-    /* box-shadow: 0px 0px 5px #fff; */
     position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background: url("./logo.png") center center no-repeat;
-    background-size: 15vw;
+    top: 50vh;
+    left: 50%;
+    margin-top: calc(-15vw / 2);
+    margin-left: calc(-15vw / 2);
+    width: 15vw;
+    height: 15vw;
+    background: center / contain no-repeat url("./logo.png");
   }
 
   .text {
@@ -247,6 +249,7 @@ h6 {
 }
 
 #resume {
+  position: relative;
   text-align: left;
 }
 
@@ -302,38 +305,6 @@ p {
   overflow-x: hidden;
 }
 
-.slide-to-right {
-  animation-name: slide-to-right;
-  animation-duration: 1s;
-  width: 50vw;
-  z-index: -99;
-}
-
-@keyframes slide-to-right {
-  from {
-    width: 0;
-  }
-
-  to {
-    width: 50vw;
-  }
-}
-
-.push-to-right {
-  animation-name: push-to-right;
-  animation-duration: 1s;
-}
-
-@keyframes push-to-right {
-  from {
-    width: 100vw;
-  }
-
-  to {
-    width: 50vw;
-  }
-}
-
 .grow-text {
   animation-name: grow-text;
   animation-duration: 1s;
@@ -346,6 +317,23 @@ p {
 
   to {
     font-size: 1.6em;
+  }
+}
+
+.slide-to-right {
+  animation-name: slide-to-right;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-delay: 2s;
+  grid-template-columns: 0fr 1fr;
+}
+
+@keyframes slide-to-right {
+  from {
+    grid-template-columns: 0fr 1fr;
+  }
+  to {
+    grid-template-columns: 1fr 2fr;
   }
 }
 
@@ -365,8 +353,7 @@ p {
 }
 
 .fade-out {
-  animation-name: fade-out;
-  animation-duration: 1s;
+  animation: fade-out 1s, bobbing 2s infinite running;
 }
 
 @keyframes fade-out {

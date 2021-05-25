@@ -3,14 +3,7 @@
 import "./index.html";
 import "./style.css";
 
-/**
- * Handles changes to the screen width.
- * @param {window.matchMedia} screensize The criteria for changing formats.
- */
-function WidthChange(screensize) {}
-
 const largeScreen = window.matchMedia("(min-device-width: 60em)");
-largeScreen.addListener(WidthChange);
 
 /*
  * Initial loading of resources and screen layout.
@@ -21,6 +14,7 @@ window.onload = async function portraitLoad() {
   const resume = document.getElementById("resume");
   const resumetext = document.getElementById("resumetext");
   const bio = document.getElementById("bio");
+  const wrapper = document.getElementById("wrapper");
 
   if (!largeScreen.matches) {
     const intro = document.getElementById("intro");
@@ -34,7 +28,6 @@ window.onload = async function portraitLoad() {
   }
 
   if ("hasCodeRunBefore" in localStorage) {
-    resume.style.width = "100%";
     resume.style.overflowX = "hidden";
     document.body.classList.remove("noscroll");
 
@@ -47,24 +40,17 @@ window.onload = async function portraitLoad() {
   localStorage.setItem("hasCodeRunBefore", true);
   window.scrollTo(0, 0);
 
+  addClass(wrapper, "slide-to-right");
+
   await sleep(2000);
-
   intro.style.visibility = "visible";
-  addClass(intro, "slide-to-right");
-
-  addClass(resume, "push-to-right");
-  addClass(logo, "push-to-right");
-
   addClass(bio, "grow-text");
 
   await sleep(1000);
 
-  resume.style.width = "100%";
-  logo.style.width = "100%";
-
-  await sleep(500);
-
   document.body.classList.remove("noscroll");
+  wrapper.classList.remove("slide-to-right");
+  logo.classList.remove("bobbing");
   addClass(logo, "fade-out");
   await sleep(400);
 
