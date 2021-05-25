@@ -25,29 +25,30 @@
 
 @media screen and (min-device-width: 40em) {
   .wrapper {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 2fr;
   }
 
   #intro {
-    visibility: hidden;
-  }
-
-  #intro,
-  .portrait img {
+    display: grid;
+    grid-template-rows: 4fr 1fr;
     position: fixed;
+    visibility: hidden;
+    width: calc(1 / calc(1 + 2) * 100vw);
+    height: 100vh;
   }
 
   #bio {
-    font-size: 1.6vw;
+    grid-row: 2;
+    font-size: 1.6em;
   }
 
   #resume {
-    position: absolute;
-    width: 100vw;
-    right: 0;
+    grid-column: 2;
   }
 
   #resumetext {
+    margin-left: 5%;
+    margin-right: 5%;
     visibility: hidden;
   }
 
@@ -63,10 +64,6 @@
   .text {
     padding: 2.5em;
   }
-
-  .tint:hover::before {
-    background: none;
-  }
 }
 
 body {
@@ -79,10 +76,6 @@ body {
   text-align: center;
 }
 
-#intro {
-  height: 100vh;
-}
-
 h1,
 h2,
 h3,
@@ -92,8 +85,53 @@ h6 {
   margin: 0;
 }
 
+.entrywrapper {
+  grid-row: 2;
+  grid-column: 1 / span 2;
+}
+
 .entry {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
   padding-bottom: 1em;
+}
+
+.section.about {
+  text-align: center;
+}
+
+.section.split {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: auto auto;
+}
+
+.entry .entrylogo {
+  grid-column: 1;
+}
+
+.entry .entrycontent {
+  grid-column: 2;
+}
+
+.hpelogo {
+  background: center top / contain no-repeat url("./logos/hpe.svg");
+  background-size: 80%;
+}
+
+.gallologo {
+  background: center top / contain no-repeat url("./logos/gallo.jpg");
+  background-size: 80%;
+}
+
+.riguplogo {
+  background: center top / contain no-repeat url("./logos/rigup.webp");
+  background-size: 80%;
+}
+
+.utlogo {
+  background: center top / contain no-repeat url("./logos/ut.svg");
+  background-size: 80%;
 }
 
 .entrytitle {
@@ -131,6 +169,15 @@ h6 {
   font-weight: 400;
 }
 
+.section.about .title {
+  font-size: 3.28rem;
+}
+
+.section.split .title {
+  grid-row: 1;
+  grid-column: 2;
+}
+
 #resume {
   text-align: left;
 }
@@ -150,18 +197,25 @@ p {
 #bio {
   color: white;
   text-shadow: 0 0 4px #000;
-  position: absolute;
-  width: 20em;
-  top: 80%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
 }
 
-.portrait img {
-  height: 100vh;
-  object-fit: cover;
-  position: relative;
-  z-index: -10;
+.portrait::before {
+  z-index: -1;
+  box-shadow: rgba(0, 0, 0, 0.2) 3px 5px 5px,
+    inset 100vw 100vh rgba(0, 104, 191, 0.4);
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: center center / cover no-repeat url("./headshot.jpg");
+  transition: box-shadow 0.3s linear;
+}
+
+.portrait:hover::before {
+  box-shadow: rgba(0, 0, 0, 0.2) 3px 5px 5px;
 }
 
 .highlight {
@@ -172,24 +226,6 @@ p {
 .current-work {
   font-style: italic;
   color: #00b388;
-}
-
-.tint {
-  height: 100vh;
-  position: relative;
-  box-shadow: rgba(0, 0, 0, 0.2) 3px 5px 5px;
-}
-
-.tint::before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 104, 191, 0.4);
-  transition: all 0.3s linear;
 }
 
 .noscroll {
@@ -240,7 +276,7 @@ p {
   }
 
   to {
-    font-size: 1.6vw;
+    font-size: 1.6em;
   }
 }
 

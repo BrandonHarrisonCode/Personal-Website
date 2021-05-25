@@ -11,18 +11,15 @@ function WidthChange(screensize) {
   const intro = document.getElementById("intro");
   const logo = document.getElementById("logo");
   const resume = document.getElementById("resume");
-  const headshot = document.getElementById("headshot");
 
   if (screensize.matches) {
-    intro.style.width = "50vw";
-    resume.style.width = "50vw";
-    logo.style.width = "50vw";
-    headshot.style.width = "50vw";
+    intro.style.width = "100%";
+    resume.style.width = "100%";
+    logo.style.width = "100%";
   } else {
     intro.style.width = "100vw";
     resume.style.width = "100vw";
     logo.style.width = "100vw";
-    headshot.style.width = "100vw";
   }
 }
 
@@ -34,12 +31,10 @@ largeScreen.addListener(WidthChange);
  */
 window.onload = async function portraitLoad() {
   const intro = document.getElementById("intro");
-  const headshot = document.getElementById("headshot");
   const logo = document.getElementById("logo");
   const resume = document.getElementById("resume");
   const resumetext = document.getElementById("resumetext");
   const bio = document.getElementById("bio");
-  const tint = document.getElementById("tint");
 
   if (!largeScreen.matches) {
     const intro = document.getElementById("intro");
@@ -53,16 +48,13 @@ window.onload = async function portraitLoad() {
   }
 
   if ("hasCodeRunBefore" in localStorage) {
-    resume.style.width = "50vw";
+    resume.style.width = "100%";
     resume.style.overflowX = "hidden";
-    headshot.style.width = "50vw";
-    bio.fontSize = "1.6vw";
     document.body.classList.remove("noscroll");
 
     resumetext.style.visibility = "visible";
-    headshot.style.visibility = "visible";
     bio.style.visibility = "visible";
-    tint.style.visibility = "visible";
+    intro.style.visibility = "visible";
     logo.style.visibility = "hidden";
     return;
   }
@@ -73,7 +65,6 @@ window.onload = async function portraitLoad() {
 
   intro.style.visibility = "visible";
   addClass(intro, "slide-to-right");
-  addClass(headshot, "slide-to-right");
 
   addClass(resume, "push-to-right");
   addClass(logo, "push-to-right");
@@ -82,8 +73,8 @@ window.onload = async function portraitLoad() {
 
   await sleep(1000);
 
-  resume.style.width = "50vw";
-  logo.style.width = "50vw";
+  resume.style.width = "100%";
+  logo.style.width = "100%";
 
   await sleep(500);
 
@@ -105,7 +96,7 @@ function updateAge() {
   const yearsOld = dateDiffInYears(
     new Date(Date.UTC(1997, 0, 9, 7, 12)),
     new Date()
-  );
+  ).toFixed(18);
   document.getElementById("age").textContent = yearsOld;
   setTimeout(updateAge, 100);
 }
