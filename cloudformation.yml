@@ -63,10 +63,13 @@ Resources:
         Enabled: true
         DefaultCacheBehavior:
             Compress: true
+            DefaultTTL: 2592000
             ForwardedValues:
               Cookies:
                 Forward: none
               QueryString: false
+            MaxTTL: 31536000
+            MinTTL: 1
             TargetOriginId: !Join [ '', [ 'S3-', !Ref websiteDomain ] ]
             ViewerProtocolPolicy: redirect-to-https
         DefaultRootObject: index.html

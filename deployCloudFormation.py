@@ -9,6 +9,7 @@ import boto3
 TRAVIS_BRANCH = os.environ.get('TRAVIS_BRANCH')
 cloudformation = boto3.client('cloudformation')
 cloudfront = boto3.client('cloudfront')
+s3_client = boto3.client('s3')
 s3 = boto3.resource('s3')
 
 
@@ -106,27 +107,54 @@ def get_aws_filenames(raw):
     return filename, keyname, mimetype
 
 
-
 def syncS3(website_domain):
     TopLevelBucket = s3.Bucket(website_domain)
     print('Syncing to S3 bucket {}...'.format(website_domain))
 
     items = []
+    used_keynames = set()
     for to_upload in glob.iglob('dist/**', recursive=True):
         filename, keyname, mimetype = get_aws_filenames(to_upload)
         if filename is None or keyname is None or mimetype is None:
             continue
 
+        used_keynames.add(keyname)
         TopLevelBucket.upload_file(
             Filename=filename,
             Key=keyname,
             ExtraArgs={
-                "ContentType": mimetype
+                "ContentType": mimetype,
+                "CacheControl": "max-age=31536000",
             }
         )
         items.append('/' + keyname)
         print('  Uploaded {}...'.format(keyname))
+
+    delete_unused_keys(website_domain, used_keynames)
+
     return items
+
+
+def delete_unused_keys(bucket_name, used_keynames):
+    response = s3_client.list_objects_v2(Bucket=bucket_name)
+    unused_keynames = set()
+    for file in response.get('Contents'):
+        if file['Key'] not in used_keynames:
+            unused_keynames.add(file['Key'])
+    bucket = s3.Bucket(bucket_name)
+    print(f'Used keynames = {used_keynames}')
+    print(f'Unused keynames = {unused_keynames}')
+    if unused_keynames:
+        print('Deleting unused filenames...')
+        bucket.delete_objects(
+                Delete={
+                    'Objects': [
+                        {'Key': key} for key in unused_keynames
+                        ]
+                    })
+        print('Done!')
+    else:
+        print('No files need to be deleted.')
 
 
 def get_distribution(website_domain):
