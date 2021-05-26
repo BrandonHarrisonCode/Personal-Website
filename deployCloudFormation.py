@@ -142,8 +142,8 @@ def delete_unused_keys(bucket_name, used_keynames):
         if file['Key'] not in used_keynames:
             unused_keynames.add(file['Key'])
     bucket = s3.Bucket(bucket_name)
-    print(f'Used keynames = {used_keynames}')
-    print(f'Unused keynames = {unused_keynames}')
+    print('Used keynames = {}'.format(used_keynames))
+    print('Unused keynames = {}'.format(unused_keynames))
     if unused_keynames:
         print('Deleting unused filenames...')
         bucket.delete_objects(
