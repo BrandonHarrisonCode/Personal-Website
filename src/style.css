@@ -1,6 +1,8 @@
 @media screen and (max-device-width: 60em) {
   .wrapper {
+    max-width: 100vw;
     grid-template-columns: 1fr;
+    overflow-x: hidden;
   }
 
   #intro {
@@ -15,10 +17,6 @@
     grid-row: 1;
     font-size: 1em;
     line-height: 1.2;
-  }
-
-  .portrait img {
-    width: 100vw;
   }
 
   #resume {
