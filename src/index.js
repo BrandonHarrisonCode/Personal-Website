@@ -14,18 +14,6 @@ window.onload = async function portraitLoad() {
   const resume = document.getElementById("resume");
   const resumetext = document.getElementById("resumetext");
   const bio = document.getElementById("bio");
-  const wrapper = document.getElementById("wrapper");
-
-  if (!largeScreen.matches) {
-    const intro = document.getElementById("intro");
-    intro.style.visibility = "visible";
-
-    resumetext.style.visibility = "visible";
-    logo.style.visibility = "hidden";
-    document.body.classList.remove("noscroll");
-
-    return;
-  }
 
   if ("hasCodeRunBefore" in localStorage) {
     resume.style.overflowX = "hidden";
@@ -38,19 +26,40 @@ window.onload = async function portraitLoad() {
     return;
   }
   localStorage.setItem("hasCodeRunBefore", true);
-  window.scrollTo(0, 0);
 
-  addClass(wrapper, "slide-to-right");
+  if (!largeScreen.matches) {
+    const intro = document.getElementById("intro");
+    intro.style.visibility = "visible";
+
+    resumetext.style.visibility = "visible";
+    logo.style.visibility = "hidden";
+    document.body.classList.remove("noscroll");
+
+    return;
+  }
+
+  setTimeout(function () {
+    window.scrollTo(0, 0);
+  }, 1);
+
+  intro.style.width = "0";
+  resume.style.width = "100vw";
 
   await sleep(2000);
   intro.style.visibility = "visible";
+  addClass(intro, "expand-right");
+  addClass(resume, "shrink-right");
   addClass(bio, "grow-text");
 
   await sleep(1000);
 
   document.body.classList.remove("noscroll");
-  wrapper.classList.remove("slide-to-right");
+  intro.classList.remove("expand-right");
+  resume.classList.remove("shrink-right");
   logo.classList.remove("bobbing");
+  intro.style.width = null;
+  resume.style.width = null;
+
   addClass(logo, "fade-out");
   await sleep(400);
 
