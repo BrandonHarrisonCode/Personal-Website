@@ -2,8 +2,10 @@
 
 import "./index.html";
 import "./style.css";
+import ResumePdf from './BrandonHarrison-Resume.pdf';
 
 const largeScreen = window.matchMedia("(min-device-width: 60em)");
+document.getElementById("resumepdf").href = ResumePdf;
 
 /*
  * Initial loading of resources and screen layout.

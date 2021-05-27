@@ -14,7 +14,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
+        test: /\.(pdf|png|svg|jpe?g|gif|webp)$/i,
         include: path.resolve(__dirname, 'src'),
         type: 'asset/resource',
       },

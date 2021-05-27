@@ -189,7 +189,7 @@ h6 {
   padding-bottom: 1em;
 }
 
-.section.about {
+.section.centered {
   text-align: center;
 }
 
@@ -244,8 +244,29 @@ h6 {
   font-weight: 400;
 }
 
-.section.about .title {
+.section.centered .title {
   font-size: 3.28rem;
+}
+
+.section.centered.footer .title {
+  font-size: 2.28rem;
+}
+
+.socialmediabtn {
+  background-color: rgb(0, 104, 191);
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+  font-size: 1.2em;
+  outline: 0;
+  border: none;
+  border-radius: 2px;
+  height: 2.4em;
+  line-height: 2.4em;
+  margin: 1.5em 0 1em 0;
+  padding: 0.4em 1.2em;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 #resume {
@@ -284,6 +305,10 @@ p {
   right: 0;
   background: center center / cover no-repeat url("./headshot.jpg");
   transition: box-shadow 0.3s linear;
+}
+
+.breakword {
+  overflow-wrap: break-word;
 }
 
 .portrait:hover::before {
