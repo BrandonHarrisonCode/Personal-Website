@@ -12,6 +12,11 @@ install:
 script:
   - yarn test
   - yarn build
-  - python3 deployCloudFormation.py
+deploy:
+  provider: script
+  script: python3 deployCloudFormation.py
+  on:
+    all_branches: true
+    condition: $TRAVIS_BRANCH =~ ^(brandonharrisoncode|ashlynnbryant)$
 cache:
   yarn: true
