@@ -136,9 +136,11 @@ def syncS3(website_domain):
 
 
 def delete_unused_keys(bucket_name, used_keynames):
+    print('Finding existing objects in bucket')
     response = s3_client.list_objects_v2(Bucket=bucket_name)
+    print(response)
     unused_keynames = set()
-    for file in response.get('Contents'):
+    for file in response.get('Contents', []):
         if file['Key'] not in used_keynames:
             unused_keynames.add(file['Key'])
     bucket = s3.Bucket(bucket_name)
