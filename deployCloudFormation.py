@@ -132,6 +132,9 @@ def syncS3(website_domain):
 
     delete_unused_keys(website_domain, used_keynames)
 
+    if not items:
+        print('WARNING: No items uploaded, website will be empty')
+
     return items
 
 
@@ -178,6 +181,9 @@ def get_distribution(website_domain):
 
 
 def invalidate_distribution(website_domain, items):
+    if not items:
+        print('No items listed. Nothing to invalidate')
+        return
     id = get_distribution(website_domain)
     print('Invalidating CloudFront distribution {} with id {}...'.format(website_domain, id))
 
