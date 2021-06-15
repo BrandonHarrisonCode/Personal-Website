@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+
 @media screen and (max-device-width: 60em) {
   .wrapper {
     width: 100vw;
@@ -161,7 +163,7 @@
 
 body {
   margin: 0;
-  font-family: Ubuntu, Roboto, sans-serif;
+  font-family: Lato, Roboto, sans-serif;
   background: #fff5ee;
   color: #000718;
   font-size: 1.1em;
@@ -210,24 +212,24 @@ h6 {
 }
 
 .entrytitle {
-  font-family: Ubuntu, Roboto, sans-serif;
+  font-family: Lato, Roboto, sans-serif;
   font-weight: 600;
   color: #04376a;
 }
 
 .subtitle {
-  font-family: Ubuntu, Roboto, sans-serif;
+  font-family: Lato, Roboto, sans-serif;
   font-style: italic;
 }
 
 .detail {
-  font-family: Ubuntu, Roboto, sans-serif;
+  font-family: Lato, Roboto, sans-serif;
   font-size: 0.9em;
   color: #434343;
 }
 
 .date {
-  font-family: Ubuntu, Roboto, sans-serif;
+  font-family: Lato, Roboto, sans-serif;
   font-size: 0.8em;
   color: #737373;
 }
@@ -239,7 +241,7 @@ h6 {
 .section .title {
   padding-bottom: 0.3em;
   font-size: 2.28rem;
-  font-family: Ubuntu, Roboto, sans-serif;
+  font-family: Lato, Roboto, sans-serif;
   color: #bf5700;
   font-weight: 400;
 }
