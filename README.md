@@ -1,9 +1,14 @@
-# Personal-Website
-My personal website
+# Brandon Harrison's Personal Website
+This is my personal portfolio website.
 
-# Usage
-For the first time running a website, run the CloudFormation template.  Otherwise, simply sync to change the website.
+## Usage
+This project uses `yarn` for installation and usage.
 
-Runs using AWS CloudFormation.
-## Parameters
-1. WebsiteDomain: The name of the website, including the gTLD like .com or .org (eg. brandonharrisoncode.com)
+Type `yarn` to install dependencies for this project.
+
+For development type `yarn start`, and for a production build `yarn build` will create a production build in the `dist/` directory.
+
+To run commit checks, run `yarn test`. To run the formatter, run `yarn format`.
+
+## License
+GPL-3.0
